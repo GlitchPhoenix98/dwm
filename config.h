@@ -68,6 +68,10 @@ static const char *termcmd[]  = { "urxvtc", NULL };
 static const char *web[] = { "firefox", NULL };
 static const char *audio[] = { "urxvtc", "-name", "pulsemixer", "-e", "sh", "-c", "pulsemixer",  NULL };
 static const char *lock[] = { "slock", NULL };
+/* Optional Laptop Backlight bindings.
+static const char *brightup[] = { "xbacklight", "-inc", "10", NULL };
+static const char *brightdown[] = { "xbacklight", "-dec", "10", NULL};
+*/
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -95,6 +99,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	/* Laptop brightness
+	{ MODKEY,			XK_F11,	   spawn,	   {.v = brightup } },
+	{ MODKEY,			XK_F12,	   spawn,	   {.v = brightdown } },
+	*/
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
